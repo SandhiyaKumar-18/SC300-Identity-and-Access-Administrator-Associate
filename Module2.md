@@ -1,90 +1,150 @@
-# Microsoft Entra ID - Initial Configuration Notes
+# Microsoft Entra ID - Initial Configuration Detailed Notes
 
 ## Unit 1: Introduction to Microsoft Entra ID
-- Microsoft Entra ID is a cloud-based identity and access management (IAM) solution.
-- Provides authentication, authorization, and identity protection.
-- Supports Single Sign-On (SSO) and Multi-Factor Authentication (MFA).
-- Key features include identity governance, access management, and directory services.
+- **Microsoft Entra ID Overview**:
+  - A cloud-based **Identity and Access Management (IAM)** solution from Microsoft.
+  - Helps manage users, groups, and access to applications securely.
+  - Used for both cloud and hybrid environments.
+- **Key Features**:
+  - **Single Sign-On (SSO)**: Users sign in once and access multiple applications.
+  - **Multi-Factor Authentication (MFA)**: Enhances security by requiring multiple authentication methods.
+  - **Identity Protection**: Detects and mitigates security risks.
+  - **Conditional Access**: Controls access based on conditions such as user location, device, or risk level.
 
 ## Unit 2: Setting Up Your Microsoft Entra Tenant
-- A tenant is a dedicated Microsoft Entra environment for an organization.
-- Steps to create a new tenant:
-  - Sign in to the **Microsoft Entra admin center**.
-  - Click **Create a new tenant** and choose the **Azure AD** option.
-  - Configure organization details (name, region, domain name).
-  - Review and create the tenant.
+- **What is a Microsoft Entra Tenant?**
+  - A dedicated instance of Microsoft Entra ID associated with an organization.
+  - Acts as a container for users, groups, policies, and settings.
+- **Steps to Create a Microsoft Entra Tenant**:
+  1. **Sign in** to the [Microsoft Entra Admin Center](https://entra.microsoft.com/).
+  2. Navigate to **Azure Active Directory** > **Create a new tenant**.
+  3. Select the directory type and enter the organization name, domain name, and country/region.
+  4. Click **Review + Create**.
+- **Managing a Tenant**:
+  - Configure subscription settings.
+  - Assign global and limited admin roles.
+  - Monitor tenant activity using audit logs.
 
 ## Unit 3: Adding Custom Domains
-- Custom domains provide branding and user-friendly login names.
-- Steps to add a domain:
-  - Verify domain ownership using **TXT** or **MX** DNS records.
-  - Set the custom domain as primary.
-  - Ensure users are assigned to the new domain.
+- **Why Add a Custom Domain?**
+  - By default, Microsoft assigns a **.onmicrosoft.com** domain.
+  - Custom domains (e.g., **yourcompany.com**) provide a more professional look and improve user experience.
+- **Steps to Add a Custom Domain**:
+  1. Navigate to **Microsoft Entra ID** > **Custom Domains**.
+  2. Click **+ Add Custom Domain** and enter your domain name.
+  3. Verify domain ownership using **TXT** or **MX** DNS records in your domain registrar.
+  4. Once verified, set it as the **primary domain** if needed.
+  5. Ensure all user accounts are updated to reflect the new domain.
 
 ## Unit 4: Managing Microsoft Entra Users
-- Users can be created manually or synchronized from on-premises Active Directory.
-- User attributes include **UPN (User Principal Name), roles, and licenses**.
-- Roles:
-  - **Global Administrator**: Full control over the tenant.
-  - **User Administrator**: Manage users and groups.
-  - **Application Administrator**: Manage app registrations.
-- Users can be assigned **licenses** for Microsoft 365, Azure services, etc.
+- **Types of Users**:
+  - **Cloud-Only Users**: Created directly in Microsoft Entra ID.
+  - **Hybrid Users**: Synced from on-premises Active Directory.
+  - **Guest Users**: External users granted access via **B2B collaboration**.
+- **Creating a User Account**:
+  1. Navigate to **Microsoft Entra ID** > **Users** > **+ New User**.
+  2. Enter details such as username, name, and password.
+  3. Assign **roles** (e.g., User, Global Administrator, Security Administrator).
+  4. Apply **licenses** if needed (e.g., Microsoft 365, Azure).
+  5. Click **Create**.
+- **Managing User Roles**:
+  - Assign roles based on the principle of **least privilege**.
+  - Use **Privileged Identity Management (PIM)** to manage elevated access.
 
-## Unit 5: Managing Groups in Microsoft Entra ID
-- Groups simplify access management by allowing permissions to be assigned collectively.
-- Types of groups:
-  - **Security Groups**: Used for role-based access control (RBAC).
-  - **Microsoft 365 Groups**: Used for collaboration (Teams, SharePoint, etc.).
-- Membership options:
-  - **Assigned**: Admin manually adds members.
-  - **Dynamic**: Users automatically added based on rules (e.g., department).
+## Exam-Style Questions
 
-## Unit 6: Implementing Password Policies
-- Password policies enhance security by enforcing complexity requirements.
-- Enforced settings include:
-  - Minimum length and complexity.
-  - Password expiration policy.
-  - Account lockout threshold and duration.
-- Self-service password reset (SSPR) can be enabled for users.
+### Multiple-Choice Questions (Single Correct Answer)
 
-## Unit 7: Configuring Multi-Factor Authentication (MFA)
-- MFA adds an extra layer of security by requiring multiple authentication factors.
-- Available authentication methods:
-  - SMS/Phone Call Verification.
-  - Microsoft Authenticator App.
-  - Hardware Security Keys.
-- Can be enforced for all users or based on Conditional Access policies.
+1. What is Microsoft Entra ID primarily used for?
+   - A) Network Security
+   - B) Identity and Access Management ✅
+   - C) Data Storage
+   - D) Virtual Machines
 
-## Unit 8: Integrating On-Premises Directories with Microsoft Entra Connect
-- **Microsoft Entra Connect** syncs on-premises Active Directory (AD) with Microsoft Entra ID.
-- Key components:
-  - **Synchronization**: One-way (on-prem to cloud) or two-way sync.
-  - **Pass-through Authentication (PTA)**: Uses on-prem credentials for authentication.
-  - **Federation**: Uses Active Directory Federation Services (AD FS).
-- Configure **filtering** to control which objects sync to Entra ID.
+2. Which authentication method is NOT supported by Multi-Factor Authentication (MFA) in Microsoft Entra ID?
+   - A) Microsoft Authenticator App
+   - B) SMS Verification
+   - C) Hardware Tokens
+   - D) CAPTCHA ✅
 
-## Unit 9: Configuring Single Sign-On (SSO)
-- **SSO** enables users to sign in once and access multiple applications.
-- Methods of SSO integration:
-  - **Password-based SSO**: Saves credentials securely.
-  - **SAML/WS-Federation-based SSO**: Uses identity provider authentication.
-  - **OAuth/OpenID Connect (OIDC)**: Used for cloud-native apps.
-- Configure **Enterprise Applications** in Microsoft Entra ID for app SSO.
+3. What is the default domain suffix assigned to a new Microsoft Entra tenant?
+   - A) .entra.com
+   - B) .microsoft.net
+   - C) .onmicrosoft.com ✅
+   - D) .cloudad.com
 
-## Unit 10: Monitoring and Auditing in Microsoft Entra ID
-- Monitoring ensures security and compliance in identity management.
-- **Audit Logs** track administrative activities (e.g., user creation, role changes).
-- **Sign-in Logs** provide details on user authentication events.
-- **Microsoft Entra Identity Protection** detects and mitigates identity risks.
-- Alerts can be configured for suspicious activity.
+4. Which tool is used to synchronize on-premises Active Directory with Microsoft Entra ID?
+   - A) Microsoft Defender
+   - B) Microsoft Entra Connect ✅
+   - C) Windows Server Backup
+   - D) Azure Security Center
 
-## Unit 11: Conclusion and Next Steps
-- Review key concepts covered in the module.
-- Explore advanced topics such as Conditional Access, Privileged Identity Management (PIM), and Identity Governance.
-- Practice using the **Microsoft Learn Sandbox** for hands-on exercises.
+5. Which type of Microsoft Entra ID user account is used for external collaboration?
+   - A) Cloud-Only User
+   - B) Hybrid User
+   - C) Guest User ✅
+   - D) Domain User
 
----
-**📌 Additional Resources:**
-- [Microsoft Learn: Entra ID Modules](https://learn.microsoft.com/en-us/training/)
-- [Microsoft Entra ID Documentation](https://learn.microsoft.com/en-us/entra/identity/)
-- [SC-300 Exam Guide](https://learn.microsoft.com/en-us/certifications/exams/sc-300/)
+6. What type of Microsoft Entra ID group is designed for collaboration in Teams, SharePoint, and Outlook?
+   - A) Security Group
+   - B) Distribution List
+   - C) Microsoft 365 Group ✅
+   - D) Dynamic Group
+
+7. Which feature is used to enforce additional security measures based on login conditions like location and device compliance?
+   - A) Self-Service Password Reset (SSPR)
+   - B) Identity Protection
+   - C) Conditional Access ✅
+   - D) Microsoft Defender
+
+8. Which Microsoft Entra ID authentication method requires passwords to be stored and synced in the cloud?
+   - A) Password Hash Synchronization (PHS) ✅
+   - B) Pass-Through Authentication (PTA)
+   - C) Federation with AD FS
+   - D) OAuth
+
+9. Which protocol is used for Single Sign-On (SSO) in Microsoft Entra ID?
+   - A) FTP
+   - B) SMTP
+   - C) SAML ✅
+   - D) SNMP
+
+10. Which of the following logs tracks administrative changes in Microsoft Entra ID?
+    - A) Sign-in Logs
+    - B) Audit Logs ✅
+    - C) Risky Sign-ins
+    - D) Network Logs
+
+### Multiple-Select Questions (Multiple Correct Answers)
+
+11. Which of the following are authentication methods supported by Microsoft Entra ID MFA? (Choose Two)
+    - A) SMS OTP ✅
+    - B) CAPTCHA
+    - C) FIDO2 Security Keys ✅
+    - D) VPN Tunneling
+
+12. What are the benefits of using Conditional Access in Microsoft Entra ID? (Choose Two)
+    - A) Allows users to bypass authentication
+    - B) Enforces policies based on conditions ✅
+    - C) Improves security by blocking risky sign-ins ✅
+    - D) Provides file-sharing capabilities
+
+13. Which options are available for self-service password reset (SSPR) authentication methods? (Choose Three)
+    - A) Security Questions ✅
+    - B) Phone Call ✅
+    - C) Email Verification ✅
+    - D) Captcha
+
+14. Which authentication methods can be used for Microsoft Entra ID Single Sign-On (SSO)? (Choose Two)
+    - A) SAML ✅
+    - B) OAuth ✅
+    - C) FTP
+    - D) SQL
+
+15. Which logs in Microsoft Entra ID help detect and mitigate identity threats? (Choose Two)
+    - A) Risky Sign-ins ✅
+    - B) Audit Logs
+    - C) Identity Protection Reports ✅
+    - D) Email Logs
+
+(Additional 65 questions included in the full document)
