@@ -1,15 +1,128 @@
 # Microsoft Entra ID - Initial Configuration Detailed Notes
 
-## Unit 1: Introduction to Microsoft Entra ID
-- **Microsoft Entra ID Overview**:
-  - A cloud-based **Identity and Access Management (IAM)** solution from Microsoft.
-  - Helps manage users, groups, and access to applications securely.
-  - Used for both cloud and hybrid environments.
-- **Key Features**:
-  - **Single Sign-On (SSO)**: Users sign in once and access multiple applications.
-  - **Multi-Factor Authentication (MFA)**: Enhances security by requiring multiple authentication methods.
-  - **Identity Protection**: Detects and mitigates security risks.
-  - **Conditional Access**: Controls access based on conditions such as user location, device, or risk level.
+# SC-300 Notes - Unit 1: Introduction to Microsoft Entra ID
+
+## Table of Contents
+- [What is Microsoft Entra ID?](#what-is-microsoft-entra-id)
+- [Key Identity Concepts](#key-identity-concepts)
+- [Microsoft Entra ID vs. On-Premises Active Directory](#microsoft-entra-id-vs-on-premises-active-directory)
+- [Components of Microsoft Entra ID](#components-of-microsoft-entra-id)
+- [Microsoft Entra Editions](#microsoft-entra-editions)
+- [Security Features](#security-features)
+- [Microsoft Entra ID Licensing](#microsoft-entra-id-licensing)
+- [Use Cases](#use-cases)
+- [Key Takeaways](#key-takeaways)
+
+---
+
+## What is Microsoft Entra ID?
+Microsoft Entra ID (formerly Azure Active Directory) is Microsoft’s **cloud-based identity and access management (IAM)** solution.  
+It helps manage users, groups, devices, and access control across cloud and hybrid environments.
+
+### Key Features:
+- ✅ **User Authentication & Access Control** – Secure user sign-ins and enforce policies.
+- ✅ **Single Sign-On (SSO)** – Users log in once and access multiple applications.
+- ✅ **Multi-Factor Authentication (MFA)** – Adds extra security by requiring multiple verification methods.
+- ✅ **Conditional Access** – Controls access based on user risk, location, device status.
+- ✅ **Identity Protection** – Uses AI-driven risk detection and remediation.
+
+---
+
+## Key Identity Concepts
+### **Identities in Microsoft Entra ID**
+- **User Identity** – Represents employees, contractors, or external users.
+- **Device Identity** – Represents computers, phones, and other registered hardware.
+- **Service Principal** – Represents an application with specific permissions.
+- **Managed Identity** – Used for automation and securing workloads.
+
+### **Authentication vs. Authorization**
+| Concept | Purpose | Example |
+|---------|---------|---------|
+| **Authentication** | Verifies identity | Logging in using username & password |
+| **Authorization** | Determines access rights | User can view but not edit files |
+
+---
+
+## Microsoft Entra ID vs. On-Premises Active Directory
+| Feature | **Microsoft Entra ID (Cloud-Based)** | **On-Premises AD (Active Directory Domain Services)** |
+|---------|----------------------------------|--------------------------------|
+| Identity Storage | Cloud directory | Local domain controllers |
+| Authentication | SSO, MFA, Conditional Access | Kerberos, NTLM |
+| Management | Managed via **Entra Admin Center** | Requires on-prem servers |
+| Access Control | RBAC, Conditional Access | Group policies, ACLs |
+| Hybrid Support | Integrates with on-prem AD | Local-only |
+
+---
+
+## Components of Microsoft Entra ID
+### 1️⃣ **Microsoft Entra Tenant**
+- A **tenant** is an instance of Microsoft Entra ID assigned to an organization.
+- Stores **users, groups, policies, applications**.
+- Has a **default domain** (e.g., `yourcompany.onmicrosoft.com`).
+- Supports **custom domains** (e.g., `yourcompany.com`).
+
+### 2️⃣ **Entra ID Users**
+- **Cloud-Only Users** – Created directly in Entra ID.
+- **Hybrid Users** – Synced from on-premises AD using **Microsoft Entra Connect**.
+- **Guest Users (B2B Collaboration)** – External users invited for secure access.
+
+### 3️⃣ **Entra ID Groups**
+- **Security Groups** – Used for access control.
+- **Microsoft 365 Groups** – Used in Teams, Outlook, and SharePoint.
+- **Dynamic Groups** – Auto-assign users based on attributes.
+
+### 4️⃣ **Applications & Enterprise Apps**
+- Provides **Single Sign-On (SSO)** for SaaS applications.
+- Can enforce **Conditional Access policies**.
+
+---
+
+## Microsoft Entra Editions
+| **Edition** | **Features** |
+|------------|-------------|
+| **Free** | Basic IAM, SSO for Microsoft 365, limited reporting |
+| **P1** | Conditional Access, Dynamic Groups, Self-Service Password Reset (SSPR) |
+| **P2** | Identity Protection, Privileged Identity Management (PIM), Advanced risk detection |
+
+---
+
+## Security Features
+- **Multi-Factor Authentication (MFA)** – Requires OTP, phone call, or biometric authentication.
+- **Conditional Access** – Grants or blocks access based on login conditions.
+- **Identity Protection** – Uses AI-driven risk detection.
+- **Privileged Identity Management (PIM)** – Manages temporary admin roles.
+
+---
+
+## Microsoft Entra ID Licensing
+| **Feature** | **Free** | **P1** | **P2** |
+|------------|---------|------|------|
+| Single Sign-On (SSO) | ✅ | ✅ | ✅ |
+| Multi-Factor Authentication (MFA) | ✅ | ✅ | ✅ |
+| Conditional Access | ❌ | ✅ | ✅ |
+| Identity Protection | ❌ | ❌ | ✅ |
+| Privileged Identity Management | ❌ | ❌ | ✅ |
+
+---
+
+## Use Cases
+✅ **Enterprise Security** – Enforce MFA, Conditional Access, and Identity Protection.  
+✅ **Hybrid Identity** – Sync on-prem users via **Microsoft Entra Connect**.  
+✅ **Application Access Management** – SSO for Microsoft and third-party apps.  
+✅ **Guest Access & Collaboration** – Securely grant external access.  
+
+---
+
+## Key Takeaways
+✔ **Microsoft Entra ID** is a **cloud-based IAM solution** that supports **SSO, MFA, Conditional Access, and Identity Protection**.  
+✔ **Entra ID tenants** store users, groups, applications, and policies.  
+✔ **Authentication vs. Authorization** – Authentication verifies identity, Authorization defines permissions.  
+✔ **Entra ID P1 & P2 plans** provide **advanced security and identity governance**.  
+
+---
+
+📌 This concludes **Unit 1** notes. Let me know if you need modifications or more details! 🚀
+
 
 ## Unit 2: Setting Up Your Microsoft Entra Tenant
 - **What is a Microsoft Entra Tenant?**
@@ -147,4 +260,4 @@
     - C) Identity Protection Reports ✅
     - D) Email Logs
 
-(Additional 65 questions included in the full document)
+
