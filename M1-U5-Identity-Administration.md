@@ -1,72 +1,196 @@
-# Identity Administration
+# Identity Administration (Bullet Format)
 
-## Define Identity Administration
+## 🧑‍💼 Story: Life of an Identity
 
-Identity administration refers to the management of identity objects throughout their lifecycle within an organization. This process can be conducted manually or automated, but it is essential to ensure proper governance and administration of identities.
+- A user named **Juan** is given a company account and works for years.
+- He is given **admin access** to deploy an application.
+- Juan **leaves** the company on good terms.
+- **Manager forgets** to submit paperwork to deactivate the account.
+- No **governance system** exists to detect the unused account.
+- Juan is no longer listed in **HR systems**.
+- A year later, Juan's **personal credentials are stolen** via phishing.
+- He used a **similar password** for work and personal accounts.
+- Attackers now have access through a **valid-looking account**.
 
-### Story: The Life of an Identity
+## 🧰 Identity Administration Provides
 
-Consider a user named Juan. Juan is provided with an account in your company and works for several years. During this period, he is granted administrative access to deploy an application. Eventually, Juan leaves the company on good terms; however, his account is never removed from the system because a manager forgot to submit the necessary paperwork for account closure. Without a governance system in place to detect unused accounts or cross-reference with HR systems, Juan's account remains active. A year later, Juan becomes a victim of a phishing email, leading to his personal username and password being stolen. Like many individuals, Juan used similar passwords for both personal and work accounts. Consequently, your systems are now vulnerable to an attack originating from what appears to be a valid account.
+- A **configurable system** based on business processes.
+- **Scalability** of resources on demand.
+- **Cost savings** via automation.
+- **Flexibility** in:
+  - Synchronization
+  - Proliferation
+  - Change control
 
-![Diagram of the life of an identity: Start with no access, then job with access and identity creation, followed by leaving the company, and returning to no access.](#)
+## 🔁 Common Identity Administration Tasks
 
-## Identity Administration Provides
+### 📦 Identity Proliferation
 
-- **Highly Configurable Systems:** Tailored around business processes.
-- **Agility:** Ability to scale resources according to demand.
-- **Cost Savings:** Achieved through distribution and automation of management.
-- **Flexibility:** In synchronization, proliferation, and change control.
+- Deals with **storage of identity objects**.
+- Identity may exist in:
+  - Active Directory
+  - Other directory services
+  - Application-specific identity stores
 
-## Common Identity Administration Tasks
+### ➕➖ Provision and Deprovision
 
-### Identity Proliferation
+- **Provisioning** = Creating identity objects.
+- **Deprovisioning** = Removing access (deletion, disablement, etc.).
 
-Involves the storage of identity objects within the environment. Organizations often have identities in directories like Active Directory, other directory services, and application-specific identity stores.
+### 🛠️ Identity Updates
 
-### Provision and Deprovision
+- Involves updating identity info **across the environment**.
+- Goal: shift from **manual** to **automated** processes.
 
-- **Provisioning:** Refers to the creation of identity objects within a system.
-- **Deprovisioning:** Focuses on the removal of an identity's access, which may involve deletion, disabling of security principals, or removal of access.
+### 🔄 Synchronization
 
-### Identity Updates
+- Ensures systems are **up-to-date** with latest identity info.
+- Sync can be:
+  - Manual
+  - Time-based
+  - Event-driven
 
-Concerns how identity information is updated throughout the environment, aiming to transition from manual efforts to more automated and streamlined approaches.
+### 🔑 Password Management
 
-### Synchronization
+- Determines where/how **passwords are set**.
+- **Service Desk** usually handles forgotten passwords.
 
-Ensures that identity systems within an environment are up-to-date with the latest identity information, which is crucial for determining access. Synchronization can be manual, time-based, or event-driven.
+### 👥 Group Management
 
-### Password Management
+- Covers how **groups are managed** in AD/LDAP.
+- Groups are:
+  - Common for assigning access
+  - **Expensive to manage**
 
-Focuses on where and how passwords are set throughout the identity infrastructure. In many organizations, the Service Desk remains the focal point for forgotten passwords.
+### 🧾 Application Entitlement Management
 
-### Group Management
+- Manages how identities are **granted access to applications**.
+- Coarse-grained entitlements: via **Authorization pillar**.
+- Fine-grained entitlements: via **identity attributes**.
 
-Addresses how an organization manages groups (e.g., Active Directory and/or LDAP) within their environment. Groups are a common method for determining access permissions to resources and can be costly to manage and operate.
+### 🖥️ User Interface
 
-### Application Entitlement Management
+- How users **request or update** identity info.
+- Many users still **contact Service Desk** for changes.
 
-Defines how identities are granted access to applications, focusing on providing coarse-grained application entitlements enforced within the Authorization pillar. Fine-grained entitlements are managed as attributes related to an identity.
+### 🔧 Change Control
 
-### User Interface
+- How **changes flow** through the system.
+- Can be:
+  - **Manual** (via emails, Service Desk)
+  - **Automated** (with or without workflow)
 
-Pertains to how end users can request or make updates to their identity information. In many environments, users still contact the Service Desk for any updates to their identity information.
+## ⚙️ Identity Management Automation
 
-### Change Control
+### 🟦 PowerShell
 
-Focuses on how changes flow through the environment, whether manually completed by a Service Desk professional or automated with or without workflow to drive the change process. Some organizations still use emails to complete requests, while others have mature processes to execute changes.
+- Cross-platform: Windows, macOS, Linux.
+- Requires:
+  - Windows PowerShell or PowerShell.
+- Runs in:
+  - Windows PowerShell
+  - Command Prompt
+  - Bash (Unix shells)
+- Scripting style: **Verb-Noun** (e.g., `New-MgUser`)
+- Returns: **Objects**
 
-## Identity Management Automation
-
-### PowerShell
-
-- **Platform:** Cross-platform (Windows, macOS, Linux)
-- **Requirements:** Requires Windows PowerShell or PowerShell
-- **Execution Environments:** Runs in Windows PowerShell, Command Prompt, or Bash and other Unix shells
-- **Command Structure:** Follows a verb-noun naming scheme
-- **Data Return:** Returns data as objects
-
-#### Example: Create User with Microsoft Graph PowerShell
+#### PowerShell Example: Create User
 
 ```powershell
 New-MgUser -DisplayName "New User" -PasswordProfile Password -UserPrincipalName "NewUser@contoso.com" -AccountEnabled $true -MailNickName "Newuser"
+```
+
+### 🟩 Azure CLI
+
+- Cross-platform: Windows, macOS, Linux.
+- Syntax: **Similar to Bash scripting**.
+- Preferred for:
+  - **Linux environments**
+- Command style: **Action-command**
+
+#### Azure CLI Example: Create User
+
+```bash
+az ad user create --display-name "New User" --password "Password" --user-principal-name NewUser@contoso.com
+```
+
+#### 🔍 Choosing Between Azure CLI & PowerShell
+
+- Choose based on:
+  - **Past experience**
+  - **Current environment**
+- Azure CLI:
+  - Best for **Linux**
+- PowerShell:
+  - Best for **Windows**
+
+## 🔗 Microsoft Graph API
+
+- Unified API for accessing:
+  - Identity
+  - Devices
+  - Microsoft 365 data
+
+### 🌐 API Endpoint
+
+```bash
+https://graph.microsoft.com
+```
+
+### 🔍 What You Can Do with Microsoft Graph
+
+- **Identity & Access**: Manage users/devices in Entra ID.
+- **Productivity**: Access emails, calendars, Teams.
+- **Security**: Detect anomalies, apply rules.
+- **Education**: Build student-focused use cases.
+- **Data Sync**: Integrate external sources.
+
+### 🔌 Microsoft Graph Connectors
+
+- Bring **external data** into Microsoft Search & 365.
+- Supported sources:
+  - Box
+  - Google Drive
+  - Jira
+  - Salesforce
+
+### 📦 Microsoft Graph Data Connect
+
+- Delivers **Graph data to Azure** securely.
+- Enables:
+  - Data warehousing
+  - Analytics
+  - Smart apps
+
+### 🧪 Example: Get User Details
+
+#### REST API
+
+```http
+GET https://graph.microsoft.com/v1.0/users/{user_id}
+```
+
+#### PowerShell
+
+```powershell
+Get-MgUser -UserId "User@contoso.com"
+```
+
+## ✅ Key Takeaways
+
+- Identity administration = critical to **security & compliance**.
+- Automate:
+  - Provisioning
+  - Updates
+  - Deprovisioning
+- Choose tools:
+  - PowerShell or Azure CLI
+- Use **Microsoft Graph API** for centralized control.
+- Synchronize and govern identities to reduce **risks**.
+
+## 📚 Learn More
+
+- [SC-300 Microsoft Learn Path](https://learn.microsoft.com/en-us/training/paths/implement-identity-governance-microsoft-entra-id/)
+- [Microsoft Graph Docs](https://learn.microsoft.com/en-us/graph/overview)
+- [Azure CLI Documentation](https://learn.microsoft.com/en-us/cli/azure/ad/user)
+- [Microsoft Graph PowerShell SDK](https://learn.microsoft.com/en-us/powershell/microsoftgraph/overview)
