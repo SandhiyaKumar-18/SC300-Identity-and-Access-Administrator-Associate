@@ -1,4 +1,4 @@
-# Identity Administration (Bullet Format)
+# Identity Administration 
 
 ## 🧑‍💼 Story: Life of an Identity
 
