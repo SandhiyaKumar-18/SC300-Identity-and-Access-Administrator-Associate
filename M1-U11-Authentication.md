@@ -11,7 +11,7 @@ Authentication is the process of validating the identity of a user, application,
 Using an **identity provider** for authentication ensures secure identities without limiting user capabilities. Benefits include:
 - ✨ **Convenience:** Enhances the end-user experience during authentication.
 - 🌐 **Multiple identity sources:** Supports federated identity for seamless integration.
-- <0xF0><0x9F><0x94><0x92> **Support for standard authentication protocols:** Ensures secure authentication.
+- 🔒 **Support for standard authentication protocols:** Ensures secure authentication.
 - 👍 **Authentication assurance:** Increases confidence that the user accessing a resource is legitimate.
 
 ## 🤝 Federated Identity
@@ -34,7 +34,7 @@ OIDC is an authentication layer built on OAuth 2.0 that provides:
 When a user signs in, **Microsoft Entra ID** issues an **ID token** containing **claims** about the user.
 
 ### 🤔 What is a Claim?
-A **claim** is a key-value pair that represents information about the user, such as: **"email"**: **"user@example.com"**, **"name"**: **"John Doe"**.
+A **claim** is a key-value pair that represents information about the user, such as an email address or username.
 
 ### ➡️ How Claims-Based Authentication Works:
 1. ✅ User authentication occurs.
@@ -63,51 +63,61 @@ Microsoft Entra ID issues **security tokens** to authorize access to resources. 
 
 ---
 
-## <0xF0><0x9F><0x94><0x93> JSON Web Tokens (JWT)
+## 🔏 JSON Web Tokens (JWT)
 
 A **JSON Web Token (JWT)** is a compact and self-contained way to transmit authentication and authorization data. JWTs are **digitally signed** and contain three main parts:
 
 ### 📑 **1. Header (Algorithm & Token Type)**
-Example: **"alg"**: **"HS256"**, **"typ"**: **"JWT"**.
+Defines the signing algorithm and token type.
 
-### 🧾 2. Payload (Claims)
-Example: **"sub"**: **"1234567890"**, **"name"**: **"John Doe"**, **"aud"**: **"https://jwt.io"**.
+### 🧾 **2. Payload (Claims)**
+Contains user identity and authorization details.
 
-### ✍️ 3. Signature (Ensures integrity)
-JWT Benefits:
+### ✍️ **3. Signature (Ensures Integrity)**
+The **signature** is used to validate the authenticity of the JWT.
+
+---
+
+## 🚀 JWT Benefits:
 - 🔒 Secure transmission of authentication details.
 - 📦 Compact format, making them efficient for web and API authentication.
 - 🖋️ Digitally signed to prevent tampering.
 
-Definitions in Claims-Based Identity
+---
+
+## 📖 Definitions in Claims-Based Identity
 
 | Term         | Definition                                                      |
 |--------------|-----------------------------------------------------------------|
-| Claim        | A key-value pair representing identity information.              |
-| Assertion    | A data package (token) that shares identity details across security domains. |
-| Attribute    | A key-value pair of data in a token.                            |
-| Augmentation | The process of adding additional claims to a token for extra details. |
-
-Summary
-Authentication is a **critical part of identity management**.
-Microsoft Entra ID provides a **flexible and secure authentication framework** with support for:
-
-- 🌐 Federated identities
-- <0xF0><0x9F><0x94><0x92> Authentication protocols
-- 🔑 Security tokens
-- 🏢 Claims-based identity
-
-These features ensure **safe and seamless user access**. 👍
-
-References
-- [Microsoft Documentation](https://learn.microsoft.com/) 📚
-- [JWT.io](https://jwt.io/) 🌐
+| **Claim**        | A key-value pair representing identity information.          |
+| **Assertion**    | A data package (token) that shares identity details across security domains. |
+| **Attribute**    | A key-value pair of data in a token.                        |
+| **Augmentation** | The process of adding additional claims to a token for extra details. |
 
 ---
 
-### 🚀 How to Use This `README.md`:
+## 📌 Summary  
+Authentication is a **critical part of identity management**.  
+Microsoft Entra ID provides a **flexible and secure authentication framework** with support for:
+
+- 🌐 **Federated identities**
+- 🔒 **Authentication protocols**
+- 🔑 **Security tokens**
+- 🏢 **Claims-based identity**
+
+These features ensure **safe and seamless user access**. 👍
+
+---
+
+## 📚 References
+- [Microsoft Documentation](https://learn.microsoft.com/)
+- [JWT.io](https://jwt.io/)
+
+---
+
+### 🎉 How to Use This `README.md`:
 1. 📄 **Copy and paste** this content into a new file named `README.md`.
 2. 💾 **Save** the file in your project directory.
 3. 👀 **Open** it in a Markdown viewer or a code editor like **VS Code** with Markdown Preview.
 
-This structured format will help document your authentication module effectively! 🎉 Let me know if you'd like any more changes or emojis! 😊
+This structured format will help document your authentication module effectively! 🚀 Let me know if you'd like any more changes! 😊
