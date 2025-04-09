@@ -42,21 +42,18 @@ This repo documents my full learning journey for the **SC-300: Microsoft Identit
 - [ ] Interview Q&A Prep
 
 ---
-
 ## 📅 My Weekly Learning Tracker
 
-| Week | Dates           | Topics Covered                      | Notes |
-|------|------------------|--------------------------------------|-------|
-| 1    | Apr 8 – Apr 14   | Intro + Azure AD Basics              |       |
-| 2    | Apr 15 – Apr 21  | Domains, Branding, Tenant Settings   |       |
-| 3    | Apr 22 – Apr 28  | RBAC, PIM, Access Policies           |       |
-| 4    | Apr 29 – May 5   | External Identities (Entra ID)       |       |
-| 5    | May 6 – May 12   | Governance: Access Reviews, Audits   |       |
-| 6    | May 13 – May 19  | Mock Tests + Review                  |       |
+| Week | Dates           | Topics Covered                                 | Notes |
+|------|------------------|-----------------------------------------------|-------|
+| 1    | Mar 29 – Apr 4   | Introduction, IAM vs PAM, Identity Concepts   |       |
+| 2    | Apr 5 – Apr 11   | Branding, Custom Domains, Tenant Settings     |       |
+| 3    | Apr 12 – Apr 18  | Roles, Delegation, Directory Roles            |       |
+| 4    | Apr 19 – Apr 25  | Conditional Access, RBAC, PIM                 |       |
+| 5    | Apr 26 – May 2   | MFA, Auth Methods, Security Defaults          |       |
+| 6    | May 3 – May 9    | External ID (B2B, Federation, Entra ID)       |       |
+| 7    | May 10 – May 16  | Identity Governance, Access Reviews           |       |
+| 8    | May 17 – May 23  | Mock Tests, Scenario Practice, Final Review   |       |
 
-> 🗓️ I update this table every weekend with new progress.
-
----
-
-## 📁 Folder Structure (Plan)
+> 🗓️ I update this every weekend to track my real progress.
 
